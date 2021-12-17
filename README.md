@@ -1,4 +1,4 @@
-# Health Platform Sensor
+# Health Platform Arduino
 
 ## Description
 The Health Platform Sensor is an Arduino-based air quality sensor.  Currently, it measures CO2 and TVOCs (total volatile organic compounds).
