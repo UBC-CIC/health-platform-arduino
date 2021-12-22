@@ -8,10 +8,9 @@
 // time between readings (ms)
 int interval = 5000;
 
-struct CCS811_reading {
-    int CO2;
-    int TVOC;
-};
+// TODO: CHANGE THIS! Needs to be generated elsewhere to prevent duplicates and map to a patient
+// unique id for the sensor
+char sensorId[3] = "152";
 
 DFRobot_CCS811 sensor;
 
@@ -27,14 +26,13 @@ void setup(void)
 
 void loop() {
     if(sensor.checkDataReady() == true){
-        CCS811_reading reading = CCS811_reading();
-        reading.CO2 = sensor.getCO2PPM();
-        reading.TVOC = sensor.getTVOCPPB();
         // TODO: replace serial output with POST to iot endpoint
+        
+
         Serial.print("CO2: ");
-        Serial.print(reading.CO2);
+        Serial.print(sensor.getCO2PPM());
         Serial.print("ppm, TVOC: ");
-        Serial.print(reading.TVOC);
+        Serial.print(sensor.getTVOCPPB());
         Serial.println("ppb");
     } else {
         Serial.println("Data is not ready!");

@@ -45,24 +45,5 @@ For this step, you will need some wires and a breadboard, as well as the CCS811 
 6.  Connect the WAKE pin on the chip to a GND pin on the Arduino (again doesn't matter which GND pin you choose).
 <img src="../images/WAKE.jpeg">
 
-## Step 5: Test the CCS811 Sensor
-The test code provided [here](../tests/test_CCS811/test_CCS811.ino) will read from the sensor every second and print the results to the serial output.
-
-1. Connect the Arduino board with the circuit from **Step 4** to your laptop using the USB blaster cord.
-
-2. Open the Arduino IDE.
-
-3. Go to File->Open, and select the tests/test_CCS811/test_CCS811.ino file from this repo.  This will open a new window.
-
-4. Upload the code to the Arduino, the way you did for the Blink example in **Step 3**.
-
-5. Open the Serial Monitor.  Make sure the baud rate is set to 115200, since that is what the code uses.
-<img src="../images/CCS811_test.png">
-<img src="../images/baud.png">
-
-## Step 6: Run the Sensor Code
-This step if for running the code to take CO2 and TVOC readings and send them to an AWS IOT endpoint.
-
-1. Repeat all steps in **Step 5**, but select the src/CCS811/CCS811.ino instead.
-
-#TODO: update this step
+## Step 5: Run the Sensor Code
+#TODO
