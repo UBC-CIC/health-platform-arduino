@@ -20,9 +20,9 @@ A sensor reading sent to the IoT endpoint looks like this:
 	* Micro-USB connector
 	* Wires + breadboard
 
-## Setup
-Firstly, follow the steps in the [AWS Environment Setup doc](./docs/aws_environment_setup.md) 
-Then proceed to the [Arduino Setup doc](./docs/arduino_setup.md).
+## Follow the instructions in these two documents for TESTING
+Firstly, follow the steps in the [AWS Environment Setup doc](./docs/aws_environment_setup.md) and
+then, proceed to the [Arduino Sensor Setup doc](./docs/arduino_sensor_setup.md).
 
 ## Future Considerations/TODO List
 * Add other sensors, eg. temperature, humidity, PM2.5
