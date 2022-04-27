@@ -3,32 +3,26 @@
 ## Description
 The Arduino uses the [Keyestudio CCS811 sensor](https://wiki.keyestudio.com/KS0457_keyestudio_CCS811_Carbon_Dioxide_Air_Quality_Sensor) to measure CO2 and TVOCs (total volatile organic compounds).  CO2 is measured in ppm, and TVOCs are measured in ppb.  Each time the sensor takes a reading, the Arduino sends the data (along with a Unix timestamp) to an AWS IoT endpoint (configured by https://github.com/UBC-CIC/health-platform-iot) (work-in-progress).
 
-A sensor reading sent to the IoT endpoint should look something like this:
+A sensor reading sent to the IoT endpoint looks like this:
 ```
 {
-	sensorId: '152',
-	timestamp: 1639591755,
-	co2: 410,
-	tvoc: 1,
+  "sensorId": "1657229",
+  "measurementType": "TVOC",
+  "measurement": "38.00",
+  "timestamp": "2022-04-27 23:11:37.000Z"
 }
 ```
 
 ## Materials
 * [Keyestudio CCS811 sensor](https://wiki.keyestudio.com/KS0457_keyestudio_CCS811_Carbon_Dioxide_Air_Quality_Sensor) (from the CIC)
-* [Arduino Uno Rev2 Wifi](https://docs.arduino.cc/hardware/uno-wifi-rev2) (from the CIC)
-	* USB-B connector (if you have a DE1-SoC FPGA board, the cords that come with it are compatible)
+
 * [NodeMCU ESP8266](https://www.amazon.ca/KeeYees-Internet-Development-Wireless-Compatible/dp/B07HF44GBT)
 	* Micro-USB connector
-* Wires + breadboard
+	* Wires + breadboard
 
 ## Setup
-See the [Arduino Setup doc](./docs/arduino_setup.md).
-
-Note that in some steps, there are instructions both for an Arduino Uno Rev2 WiFi board and a NodeMCUU ESP8266 board.  Initially, the Rev2 WiFi board was used for testing the CCS811 sensor.  However, it did not have enough memory to support sending MQTT messages using SSL.  For future development, use the [NodeMCU ESP8266 board](https://www.amazon.ca/KeeYees-Internet-Development-Wireless-Compatible/dp/B07HF44GBT).
-
-## Current Progress
-* CCS811 sensor has been tested with both Arduinos: scripts are provided for each board
-* MQTT messaging to AWS IoT has been tested for the NodeMCU board
+Firstly, follow the steps in the [AWS Environment Setup doc](./docs/aws_environment_setup.md) 
+Then proceed to the [Arduino Setup doc](./docs/arduino_setup.md).
 
 ## Future Considerations/TODO List
 * Add other sensors, eg. temperature, humidity, PM2.5
