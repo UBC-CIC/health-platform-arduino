@@ -19,8 +19,8 @@ http://arduino.esp8266.com/stable/package_esp8266com_index.json
 ## Step 3: Installing the ESP8266 File System Uploader
 The certificates and keys that we downloaded in the previous section need to now be uploaded to the board. This is done using the [following plugin](https://github.com/esp8266/arduino-esp8266fs-plugin). The Github page provides the necessary instructions for installation.
 
-1. Once installation is finished, navigate to the Arduino directory where your sketch is saved. Open it and create a new directory called ‘data’. Paste the 'cert', 'private', and 'out' files in there. 
-<img src="../images/filesystem_data_setup.png">
+1. Once installation is finished, navigate to the Arduino directory where your sketch is saved. Open it and create a new directory called ‘data’. Paste the 'cert', 'private', and 'ca' files in there. 
+<img src="../images/certs_upload_setup.png">
 
 3. Open up the 'aws_sensor_authentication.ino' sketch. Go to Tools -> Sketch Data Upload. This should start uploading the files into ESP8266 flash file system. When done, IDE status bar will display SPIFFS Image Uploaded message.
 <img src="../images/sketch_upload_setup.png">
