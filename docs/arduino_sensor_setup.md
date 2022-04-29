@@ -62,19 +62,26 @@ For this step, you will need some wires and a breadboard, as well as the CCS811 
 <img src="../images/esp8266_usb_connection.jpg">
 
 # Connecting the Sensor to the Cloud
-1. Open up your Arduino Sketch. Change the endpoint and topic values to values you want.
+1. The code file we will be working with is the [Arduino sketch in this directory](../tests/esp8266/aws_sensor_connection_with_authentication/aws_sensor_connection_with_authentication.ino). Download the file, open it up in the Arduino IDE and change the endpoint and topic values.
 <img src="../images/endpoint_topic_setup.png">
 
 2. From the Menu bar, select Tools -> Port. If a board is currently selected it will be displayed here. If you don't see your board in the list, checkout [this link](https://support.arduino.cc/hc/en-us/articles/4412955149586-If-your-board-does-not-appear-in-the-port-menu). Although the Port varies by system, the rest of your Tools configurations should look something like this.
 <img src="../images/esp8266_tools_config.png">
 
 4. Click the upload button and wait for your sketch to be uploaded to the board (Might take a few minutes). 
+
 5. Open up the serial monitor which is set at the baud rate of 115200.
 
 6. Using any WiFi enabled device, find the access point called ESP8266APConnect and click connect.
-7. You will be directed to a landing page where you can find your condfigure your WiFi credentials (SSID/WiFi Name and WiFi Password). Once configured, the page will close. If your Serial Monitor looks something like this, that means that the device has successfully connected to your configured endpoint and sending data to your topic.
-(!!) 
-8. We can test this by opening up the MQTT Test Client in the AWS IOT Core Console. Enter the topic name in the field, click subscribe and see the TVOC and CO2 readings show up. 
+<img src="../images/wifi_ap_setup.png" width="250">
+
+
+7. You will be directed to a landing page where you can find your configure your WiFi credentials (SSID/WiFi Name and WiFi Password). Once configured, the page will close and you will get confirmation in the 'Serial Monitor' that your device has successfully connected and sending data in the Serial Monitor.
+<img src="../images/wifi_cred_setup.png" width="250">
+<img src="../images/wifi_connected_setup.png">
+
+
+8. We can test this by opening up the MQTT Test Client in the AWS IOT Core Console. Enter the topic name in the field, click subscribe, and see the TVOC and CO2 readings show up. 
 <img src="../images/console/mqtt_console.png">
 <img src="../images/console/mqtt_test_client_console.png">
 
