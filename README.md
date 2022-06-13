@@ -1,7 +1,7 @@
 # Health Platform Arduino
 
 ## Description
-The NodeMCU is a microcontroller with an integrated WiFi chip that allows for the rapid development of IOT projects. In conjundtion with the Arduino IDE and the [Keyestudio CCS811 sensor](https://wiki.keyestudio.com/KS0457_keyestudio_CCS811_Carbon_Dioxide_Air_Quality_Sensor) we can measure CO2 and TVOCs (total volatile organic compounds) levels every few seconds.  CO2 is measured in ppm, and TVOCs are measured in ppb. Each time the sensor takes a reading, the NodeMCU sensor sends the data (along with a Unix timestamp) to an AWS IoT endpoint (configured by https://github.com/UBC-CIC/health-platform).
+The NodeMCU is a microcontroller with an integrated WiFi chip that allows for the rapid development of IOT projects. In conjunction with the Arduino IDE and the [Keyestudio CCS811 sensor](https://wiki.keyestudio.com/KS0457_keyestudio_CCS811_Carbon_Dioxide_Air_Quality_Sensor), we can measure CO2 and TVOCs (total volatile organic compounds) levels every few seconds.  CO2 is measured in ppm, and TVOCs are measured in ppb. Each time the sensor takes a reading, the NodeMCU sensor sends the data (along with a Unix timestamp) to an AWS IoT endpoint (configured by https://github.com/UBC-CIC/health-platform).
 
 A sensor reading sent to the IoT endpoint looks like this:
 ```
