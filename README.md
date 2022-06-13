@@ -1,15 +1,13 @@
 # Health Platform Arduino
 
 ## Description
-The Arduino uses the [Keyestudio CCS811 sensor](https://wiki.keyestudio.com/KS0457_keyestudio_CCS811_Carbon_Dioxide_Air_Quality_Sensor) to measure CO2 and TVOCs (total volatile organic compounds).  CO2 is measured in ppm, and TVOCs are measured in ppb.  Each time the sensor takes a reading, the Arduino sends the data (along with a Unix timestamp) to an AWS IoT endpoint (configured by https://github.com/UBC-CIC/health-platform-iot) (work-in-progress).
+The NodeMCU is a microcontroller with an integrated WiFi chip that allows for the rapid development of IOT projects. In conjundtion with the Arduino IDE and the [Keyestudio CCS811 sensor](https://wiki.keyestudio.com/KS0457_keyestudio_CCS811_Carbon_Dioxide_Air_Quality_Sensor) we can measure CO2 and TVOCs (total volatile organic compounds) levels every few seconds.  CO2 is measured in ppm, and TVOCs are measured in ppb. Each time the sensor takes a reading, the NodeMCU sensor sends the data (along with a Unix timestamp) to an AWS IoT endpoint (configured by https://github.com/UBC-CIC/health-platform).
 
 A sensor reading sent to the IoT endpoint looks like this:
 ```
 {
-  "sensorId": "1657229",
-  "measurementType": "TVOC",
-  "measurement": "38.00",
-  "timestamp": "2022-04-27 23:11:37.000Z"
+  "sensorID": "1234",
+  "data": [{"measurementType":"TVOC", "measurement":"345", "timestamp":"2022-04-27 23:11:37.000Z"}]
 }
 ```
 
@@ -23,21 +21,12 @@ A sensor reading sent to the IoT endpoint looks like this:
 * [Wall Adapter](https://www.amazon.ca/Charger-LUOATIP-Adapter-Charging-Replacement/dp/B07TK6MPNB/ref=sr_1_1_sspa?crid=31ENFA5R6MP8Z&keywords=wall+adapter+usb&qid=1651255327&sprefix=wall+adapte%2Caps%2C5225&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyREdINkVINU5JWVMwJmVuY3J5cHRlZElkPUEwNTg2MjYwMlRaRk0yTk5OMjYxNiZlbmNyeXB0ZWRBZElkPUEwNDYzNDMzUzcwRlpYRjAzSVEmd2lkZ2V0TmFtZT1zcF9hdGYmYWN0aW9uPWNsaWNrUmVkaXJlY3QmZG9Ob3RMb2dDbGljaz10cnVl) 
 
 ## Deployment Guide
-The Node MCU boards come with the code and certificates already uploaded to the devices. Simply plug the USB cable into a wall adapter or your laptop, open up the [Arduino Sensor Setup doc](./docs/arduino_sensor_setup.md), and follow from Step #5 in the 'Connecting Sensor To Cloud' section.  
+The Node MCU board administered by the CIC come with the come with the code and certificates already uploaded to the device. Simply plug the USB cable into a wall adapter or your laptop, open up the [Arduino Sensor Setup doc](./docs/arduino_sensor_setup.md), and follow from Step #5 in the 'Connecting Sensor To Cloud' section.  
 
-If you are registering and deploying the solution into your AWS Account, firstly, follow the steps in the [AWS Environment Setup doc](./docs/aws_environment_setup.md) and
+If you are building the sensor from scratch and registering / deploying the solution into your AWS Account, firstly, follow the steps in the [AWS Environment Setup doc](./docs/aws_environment_setup.md) and
 then proceed to the [Arduino Sensor Setup doc](./docs/arduino_sensor_setup.md).
 
-## Future Considerations/TODO List
-* Add other sensors, eg. temperature, humidity, PM2.5
-* How to assign sensorIds (coordinate with https://github.com/UBC-CIC/health-platform-iot)
-* Combine the CCS811 and MQTT tests for the NodeMCU board to create the source code for taking sensor readings and sending them to AWS IoTCore
-
-## Other Resources
-* Tests for individual components of the project: see the [tests folder](./tests).  Each test has a set of instructions with it.
-* [Sensor research](./docs/sensor_research.md)
-
-* [Repo for iot data collection](https://github.com/UBC-CIC/health-platform-iot)
+## Helpful Resources 
 
 * [Connect NodeMCU board to AWS IoT](https://medium.com/@jgillard/marrying-esp8266-aws-iot-69f1ab219c2)
 

@@ -62,7 +62,7 @@ For this step, you will need some wires and a breadboard, as well as the CCS811 
 <img src="../images/esp8266_usb_connection.jpg">
 
 # Connecting the Sensor to the Cloud
-1. The code file we will be working with is the [Arduino sketch in this directory](../tests/esp8266/aws_sensor_connection_with_authentication/aws_sensor_connection_with_authentication.ino). Download the file, open it up in the Arduino IDE and change the endpoint and topic values.
+1. The code file we will be working with is the [Arduino sketch in this directory](../src/NodeMCU/aws_sensor_connection_with_authentication/aws_sensor_connection_with_authentication.ino). Download the file, open it up in the Arduino IDE and change the endpoint and topic values.
 <img src="../images/endpoint_topic_setup.png">
 
 2. From the Menu bar, select Tools -> Port. If a board is currently selected it will be displayed here. If you don't see your board in the list, checkout [this link](https://support.arduino.cc/hc/en-us/articles/4412955149586-If-your-board-does-not-appear-in-the-port-menu). Although the Port varies by system, the rest of your Tools configurations should look something like this.
