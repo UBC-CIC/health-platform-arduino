@@ -31,3 +31,5 @@ then proceed to the [Arduino Sensor Setup doc](./docs/arduino_sensor_setup.md).
 * [Connect NodeMCU board to AWS IoT](https://medium.com/@jgillard/marrying-esp8266-aws-iot-69f1ab219c2)
 
 * [Arduino IDE issues with Mac OS Big Sur](https://www.esp8266.com/viewtopic.php?f=32&t=21692&start=4)
+
+* [Getting the Chip ID and MAC Address](http://wei48221.blogspot.com/2017/10/esp8266-getting-chip-id-and-mac-address.html)
