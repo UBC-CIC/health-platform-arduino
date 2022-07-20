@@ -55,4 +55,4 @@
 3. You should now have three files called 'cert', 'private' and 'ca' stored in your folder like this. We will be uploading these three files to the boards memory. 
 <img src="../images/console/name_keys_2_console.png">
 
-## You have now configured with the AWS environment and are ready to provision the code and certificates to the ESP8266 board. 
+## You have now configured with the AWS environment and are ready to provision the code and certificates to the NodeMCU ESP8266 board. 
