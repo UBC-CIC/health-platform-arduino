@@ -12,7 +12,7 @@ This board is not supported by the basic board manager that is automatically ins
 http://arduino.esp8266.com/stable/package_esp8266com_index.json
 ```
 <img src="../images/preferences.png">
-2. Go to Tools->Board->Boards Manager, and search for esp8266.  When you install this, select the 2.7.4 version.
+2. Go to Tools->Board->Boards Manager, and search for esp8266.  When you install this, select the 2.7.3 version.
 <img src="../images/board_manager_esp8266.png">
 3. Go to Tools->Board->ESP8266 Boards (2.7.3) and select *NodeMCU 1.0 (ESP-12E Module)*.
 
@@ -27,7 +27,7 @@ The certificates and keys that we downloaded in the previous section need to now
 
 
 ## Step 4: Installing the libraries
-The following libraries need to be installed onto the Arduino IDE in order to for the sketch to compile and be uploaded to the board. You can use the 'Library Manager' in the IDE and install them. 
+It is very important that these exact libraries be installed onto the Arduino IDE in order to for the sketch to compile and be uploaded to the board. You can use the 'Library Manager' in the IDE and install them. 
 
 - The following are installed by going into the IDE, then clicking on Sketch -> Library Manager -> 'Library Name' and then install. 
   - PubSub Client by Nick O' Leary (v. 2.8.0)
@@ -62,7 +62,14 @@ For this step, you will need some wires and a breadboard, as well as the CCS811 
 <img src="../images/esp8266_usb_connection.jpg">
 
 # Connecting the Sensor to the Cloud
-1. The code file we will be working with is the [Arduino sketch in this directory](../src/NodeMCU/aws_sensor_connection_with_authentication/aws_sensor_connection_with_authentication.ino). Download the file, open it up in the Arduino IDE and change the endpoint and topic values.
+1. In order to connect the sensor to AWS and integrate it with the website, we need the iot endpoint value. Retrieve this value by going back into your AWS Console -> AWS IOT -> Settings. Make sure to note the endpoint value.
+<img src="../images/console/settings_iot.png">
+<img src="../images/console/aws_iot_endpoint.png">
+
+
+
+
+2. Now we can proceed to uploading the code to the device. The code file we will be working with is the [Arduino sketch in this directory](../src/NodeMCU/aws_sensor_connection_with_authentication/aws_sensor_connection_with_authentication.ino). Download the file, open it up in the Arduino IDE and change the endpoint and topic values. Set the topic value to "iot_device_analytics" and the endpoint value to the one that was retrieved from the AWS Console.
 <img src="../images/endpoint_topic_setup.png">
 
 2. From the Menu bar, select Tools -> Port. If a board is currently selected it will be displayed here. If you don't see your board in the list, checkout [this link](https://support.arduino.cc/hc/en-us/articles/4412955149586-If-your-board-does-not-appear-in-the-port-menu). Although the Port varies by system, the rest of your Tools configurations should look something like this.
@@ -81,7 +88,22 @@ For this step, you will need some wires and a breadboard, as well as the CCS811 
 <img src="../images/wifi_connected_setup.png">
 
 
-8. We can test this by opening up the MQTT Test Client in the AWS IOT Core Console. Enter the topic name in the field, click subscribe, and see the TVOC and CO2 readings show up. 
+8. We can test this by opening up the MQTT Test Client in the AWS IOT Core Console. Enter the topic name in the field, click subscribe, and see the TVOC and CO2 readings show up. Make sure to take note of the Sensor Id as it will be needed to register the device on the Health Platform Website
 <img src="../images/console/mqtt_console.png">
 <img src="../images/console/mqtt_test_client_console.png">
+
+
+# Connecting the Sensor to the Health Platform Website 
+
+1. Log into the Health Platform website and navigate to the Patients page
+<img src="../images/patients_dashboard_gas_sensor.png">
+
+2. Find the patient you want to add the sensor to, navigate to the sensor column, click on Manage -> Add Sensor
+<img src="../images/select_add_gas_sensor.png">
+
+
+3. Select the sensor type to be a Gas Sensor. Then enter the Sensor ID and select Add. 
+<img src="../images/add_gas_sensor.png">
+
+4. You will now be able to see CO2 and TVOC readings on the main dashboard page. 
 
