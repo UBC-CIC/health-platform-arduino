@@ -83,7 +83,7 @@ It is very important that these exact libraries be installed onto the Arduino ID
 2. Now we can proceed to uploading the code to the device. In the IDE with the code file, set the topic value to "iot_device_analytics" and the endpoint value to the one that was retrieved from the AWS Console. Once edited, make sure to save your code.
 <img src="../images/endpoint_topic_setup.png">
 
-2. From the Menu bar, select Tools -> Port. If a board is currently selected it will be displayed here. If you don't see your board in the list, checkout [this link](https://support.arduino.cc/hc/en-us/articles/4412955149586-If-your-board-does-not-appear-in-the-port-menu). Although the Port varies by system, the rest of your Tools configurations should look something like this.
+3. From the Menu bar, select Tools -> Port. If a board is currently selected it will be displayed here. If you don't see your board in the list, checkout [this link](https://support.arduino.cc/hc/en-us/articles/4412955149586-If-your-board-does-not-appear-in-the-port-menu). Although the Port varies by system, the rest of your Tools configurations should look something like this.
 <img src="../images/esp8266_tools_config.png">
 
 4. Ensure your sketch compiles by clicking on the Verify button (top left). If there are no errors, proceed to click the upload button and wait for your sketch to be uploaded to the board (Might take a few minutes). 
